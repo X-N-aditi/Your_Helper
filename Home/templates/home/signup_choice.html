@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign-Up Choice</title>
+
+  <style>
+    body {
+      background-color: #f4f7ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      color: #1f2937;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .button-container a {
+      flex: 1;
+      text-decoration: none;
+    }
+
+    .button-container button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #3cb67a; /* lighter green */
+      color: white;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #198754; /* Bootstrap success green */
+    }
+
+    @media (max-width: 480px) {
+      .button-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Do you want to Sign-Up as a Customer or Service-Provider</h2>
+    <div class="button-container">
+      <a href="{% url 'customer-signup' %}"><button>Customer</button></a>
+      <a href="{% url 'service-provider-signup' %}"><button>Service Provider</button></a>
+    </div>
+  </div>
+</body>
+</html>

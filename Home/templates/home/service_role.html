@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 30px;
+}
+
+#service-list {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.outer-card {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inner-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-left: 5px solid #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.inner-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.inner-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.inner-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.1;
+}
+
+.btn-success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #388e3c;
+}
+
+    </style>
+</head>
+<body>
+    <section id="service-list">
+    {% for provider in providers %}
+    <div class="outer-card">
+        <div class="inner-card">
+            <div class="card-left">
+                <h5 class="card-title">{{ provider.name }}</h5>
+            </div>
+            <div class="card-middle">
+                <p class="card-text">
+                    <strong>Service:</strong> {{ provider.service|title }}<br>
+                    <strong>Title:</strong> {{ provider.title }}
+                    <strong>Name:</strong> {{ provider.name }}<br>
+                    <strong>Charges:</strong> {{ provider.service_charge }}
+                    <strong>Duration:</strong> {{ provider.service_duration }}<br>
+                    <strong>Experience:</strong> {{ provider.year_of_experience }}
+                </p>
+            </div>
+            <div class="card-right">
+                <a href="{% url 'book-service' provider.id %}" class="btn btn-success">Book Now</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+        <p>No service providers available for {{ role }} at the moment.</p>
+    {% endfor %}
+</section>
+
+</body>
+</html>

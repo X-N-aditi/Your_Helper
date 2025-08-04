@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Your HELPER</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Website</title>
+    <link rel="stylesheet" href="{% static 'Home/css/style.css' %}">
+
+    
+</head>
+<body>
+    
+    <!-- ✅ WRAP in header for clarity -->
+<header class="custom-header">
+    <div class="my-container">
+        <div class="left-container">
+            <h1>YOUR HELPER</h1>
+        </div>
+        <div class="right-container">
+            <div class="nav-bar"><a href="{% url 'home' %}">Home</a></div>
+            <div class="nav-bar"><a href="#services">Service</a></div>
+            <div class="nav-bar"><a href="{% url 'signup/login' %}">SignUp/Login</a></div>
+            <div class="nav-bar"><a href="#About-us">About Us</a></div>
+        </div>
+    </div>
+</header>
+
+    <div>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'Home/Images/Cook.jpg' %}" class="d-block w-100" alt="first">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'Home/Images/electrician.jpg' %}" class="d-block w-100" alt="second">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'Home/Images/gardener.jpg' %}" class="d-block w-100" alt="third">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'Home/Images/plumber.jpg' %}" class="d-block w-100" alt="fourth">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'Home/Images/sweeper.jpg' %}" class="d-block w-100" alt="fifth">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    </div>
+
+
+<!-- ✅ Green Section with Cards -->
+<section class="green-section py-5" id="services"></section>>
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'Home/images/plumber_person.jpg' %}" class="card-img-top" alt="Plumber">
+          <div class="card-body">
+            <h5 class="card-title">Plumber</h5>
+            <p class="card-text">Expert plumbing services at your doorstep.</p>
+            <a href="{% url 'service-by-role' 'plumber' %}" class="btn btn-success">View Plumbers</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'Home/images/cook_person.jpg' %}" class="card-img-top" alt="Cook">
+          <div class="card-body">
+            <h5 class="card-title">Cook</h5>
+            <p class="card-text">Find reliable cooks for daily or event needs.</p>
+            <a href="{% url 'service-by-role' 'cook' %}" class="btn btn-success">View Cooks</a>
+          </div>
+        </div>
+      </div>
+
+
+      <!--card 3-->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'Home/images/sweeper_person.jpg' %}" class="card-img-top" alt="Plumber">
+          <div class="card-body">
+            <h5 class="card-title">Sweeper</h5>
+            <p class="card-text">Expert sweeper services at your doorstep.</p>
+            <a href="{% url 'service-by-role' 'sweeper' %}" class="btn btn-success">View Sweepers</a>
+          </div>
+        </div>
+      </div>
+
+
+      <!--card 4-->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'Home/images/electrician_person.jpg' %}" class="card-img-top" alt="Plumber">
+          <div class="card-body">
+            <h5 class="card-title">Electrician</h5>
+            <p class="card-text">Expert electrician services at your doorstep.</p>
+            <a href="{% url 'service-by-role' 'electrician' %}" class="btn btn-success">View Electricians</a>
+          </div>
+        </div>
+      </div>
+
+      <!--card 5-->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'Home/images/cleaner_person.jpg' %}" class="card-img-top" alt="Plumber">
+          <div class="card-body">
+            <h5 class="card-title">Cleaner</h5>
+            <p class="card-text">Expert cleaner services at your doorstep.</p>
+            <a href="{% url 'service-by-role' 'cleaner' %}" class="btn btn-success">View Cleaners</a>
+          </div>
+        </div>
+      </div>
+
+
+      <!--card 6-->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'Home/images/gardener_person.jpg' %}" class="card-img-top" alt="Plumber">
+          <div class="card-body">
+            <h5 class="card-title">Gardener</h5>
+            <p class="card-text">Expert gardener services at your doorstep.</p>
+            <a href="{% url 'service-by-role' 'gardener' %}" class="btn btn-success">View Gardeners</a>
+          </div>
+        </div>
+      </div>
+
+      <!--card 7-->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'Home/images/mechanic_person.jpg' %}" class="card-img-top" alt="Plumber">
+          <div class="card-body">
+            <h5 class="card-title">Mechanic</h5>
+            <p class="card-text">Expert mechanic services at your doorstep.</p>
+            <a href="{% url 'service-by-role' 'mechanic' %}" class="btn btn-success">View Mechanics</a>
+          </div>
+        </div>
+      </div>
+
+      <!--card 8-->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'Home/images/beautician_person.jpg' %}" class="card-img-top" alt="Plumber">
+          <div class="card-body">
+            <h5 class="card-title">Beautician</h5>
+            <p class="card-text">Expert beautician services at your doorstep.</p>
+            <a href="{% url 'service-by-role' 'beautician' %}" class="btn btn-success">View Beauticians</a>
+          </div>
+        </div>
+      </div>
+
+      <!--card 9-->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{% static 'Home/images/mistary_person.jpg' %}" class="card-img-top" alt="Plumber">
+          <div class="card-body">
+            <h5 class="card-title">Mistary</h5>
+            <p class="card-text">Expert mistary services at your doorstep.</p>
+            <a href="{% url 'service-by-role' 'mistary' %}" class="btn btn-success">View Mistary</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+
+
+<footer style="background-color: #198754; color: white; padding: 2rem 0;">
+    <div class="container">
+        <div class="row text-center text-md-start">
+            <div class="col-md-4 mb-3">
+                <h5 class="fw-bold">Your Helper</h5>
+                <p>
+                    Connecting you with reliable professionals for home services like plumbing, beauty, electrical, and more.
+                </p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/" class="text-white text-decoration-none">Home</a></li>
+                    <li><a href="#About-us" class="text-white text-decoration-none">About Us</a></li>
+                    <li><a href="/services/" class="text-white text-decoration-none">Services</a></li>
+                    <li><a href="/contact/" class="text-white text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="fw-bold">Contact Us</h5>
+                <p>Email: support@yourhelper.com</p>
+                <p>Phone: +91-0000000000</p>
+                <p>&copy; 2025 Your Helper. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+      </div>
+    
+</body>
+</html>
