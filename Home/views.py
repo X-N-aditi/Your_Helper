@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomerForm, ServiceProviderForm, LoginForm
 from .models import ServiceProvider, Customer, Booking
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseForbidden
 
 def home(request):
     return render(request, 'home/home.html')
@@ -37,10 +35,8 @@ def Service_provider_sign_up(request):
 
 
 
-
-
 def login_view(request):
-    next_url = request.GET.get('next')  # ← get the ?next=... param
+    next_url = request.GET.get('next')  
 
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -52,21 +48,20 @@ def login_view(request):
             if customer:
                 request.session['user_id'] = customer.id
                 request.session['user_type'] = 'customer'
-                return redirect(next_url or 'home')  # ← use next if exists
+                return redirect(next_url or 'home')  
 
             # Check ServiceProvider model
             provider = ServiceProvider.objects.filter(email=email).first()
             if provider:
                 request.session['user_id'] = provider.id
                 request.session['user_type'] = 'provider'
-                return redirect(next_url or 'home')  # ← use next if exists
+                return redirect(next_url or 'home')  
 
             form.add_error('email', 'No account found with this email.')
     else:
         form = LoginForm()
 
     return render(request, 'home/login.html', {'form': form})
-
 
 
 
@@ -80,32 +75,10 @@ def service_by_role(request, service):
 
 
 
-# @login_required(login_url='login')
-# def book_service(request, provider_id):
-#     if request.session.get('user_type') != 'customer':
-#         return HttpResponseForbidden("Only customers can book services.")
-
-#     customer_id = request.session.get('user_id')
-#     customer = get_object_or_404(Customer, id=customer_id)
-#     provider = get_object_or_404(ServiceProvider, id=provider_id)
-
-#     if request.method == 'POST':
-#         address = request.POST.get('address')
-#         if address:
-#             booking = Booking.objects.create(
-#                 customer=customer,
-#                 provider=provider,
-#                 address=address
-#             )
-#             return redirect('dummy-payment', booking_id=booking.booking_id)
-    
-#     return render(request, 'home/book_service.html', {'provider': provider})
-
-
 
 def book_service(request, provider_id):
     if not request.session.get('user_id') or request.session.get('user_type') != 'customer':
-        return redirect(f'/login/?next=/book/{provider_id}/')  # manually handle redirection
+        return redirect(f'/login/?next=/book/{provider_id}/')  
 
     customer_id = request.session.get('user_id')
     customer = get_object_or_404(Customer, id=customer_id)

@@ -1,9 +1,6 @@
 from django import forms
 from .models import Customer, ServiceProvider, Booking
 
-from django import forms
-from .models import Customer
-
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
@@ -19,9 +16,6 @@ class CustomerForm(forms.ModelForm):
             'pincode': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
-
-from django import forms
-from .models import ServiceProvider
 
 class ServiceProviderForm(forms.ModelForm):
     class Meta:
@@ -44,12 +38,11 @@ class ServiceProviderForm(forms.ModelForm):
             'state': forms.TextInput(attrs={'class': 'form-control'}),
             'city': forms.TextInput(attrs={'class': 'form-control'}),
             'pincode': forms.TextInput(attrs={'class': 'form-control'}),
-            'identity_proof': forms.FileInput(attrs={'class': 'form-control'}),
+            'identity_proof': forms.Select(attrs={'class': 'form-select'}),  
             'year_of_experience': forms.NumberInput(attrs={'class': 'form-control'}),
             'experience_certificate': forms.FileInput(attrs={'class': 'form-control'}),
             'photo': forms.FileInput(attrs={'class': 'form-control'}),
         }
-
 
 
 class LoginForm(forms.Form):
